@@ -1,75 +1,46 @@
-// Constants
-const GIPHY_API_URL = 'https://api.giphy.com/v1/gifs/trending'
-const GIPHY_API_KEY = 'EUbzzvd8szrUX0fjMZVaA2R7iU7CWWbp'
-const IMAGES_TO_LOAD = 3
+import { CONFIG } from './js/config/config.js';
+import { createGifElement } from './js/components/GifCard.js';
+import { fetchTrendingGifs } from './js/services/giphy.js';
 
 /**
- * Creates an image element and loads it with the given URL
- * @param {string} url - The URL of the image to load
- * @returns {Promise<HTMLImageElement>} Promise that resolves when image loads
+ * Main function to load and display images
  */
-const loadImage = (url) => {
-  return new Promise((resolve) => {
-    const image = new Image()
-    image.onload = () => resolve(image)
-    image.src = url
-  })
-}
-
-/**
- * Fetches trending GIFs from Giphy API
- * @returns {Promise<Array<{images: {downsized: {url: string}}}>}
- */
-const fetchTrendingGifs = async () => {
-  const params = new URLSearchParams({
-    api_key: GIPHY_API_KEY,
-    limit: IMAGES_TO_LOAD
-  })
-
-  const response = await fetch(`${GIPHY_API_URL}?${params}`)
-  const { data } = await response.json()
-  return data
-}
-
-/**
- * Updates button state during loading
- * @param {HTMLButtonElement} button 
- */
-const setLoadingState = (button) => {
-  button.disabled = true
-  button.textContent = 'Loading images…'
-}
-
-/**
- * Main function to handle loading and displaying images
- */
-const handleImageLoad = async () => {
-  const loadButton = document.querySelector('#load')
-  if (!loadButton) return
-
-  setLoadingState(loadButton)
+const loadImages = async () => {
+  const imagesContainer = document.querySelector('#gif-container')
+  const controls = document.querySelector('#controls')
+  const loadButton = document.querySelector('#image-loader')
+  
+  if (!imagesContainer || !controls || !loadButton) return
+  
+  // Disable button while loading
+  loadButton.textContent = CONFIG.messages.loading
+  loadButton.disabled = true
 
   try {
     const gifs = await fetchTrendingGifs()
+    if (gifs.length === 0) {
+      console.log(CONFIG.messages.noImages)
+      return
+    }
+
+    gifs.forEach(gif => {
+      const gifElement = createGifElement(gif)
+      imagesContainer.appendChild(gifElement)
+    })
     
-    const images = await Promise.all(
-      gifs.map(gif => loadImage(gif.images.downsized.url))
-    )
-
-    images.forEach(image => document.getElementById('images').appendChild(image))
-    loadButton.remove()
-
+    // Remove the controls after successful load
+    controls.remove()
   } catch (error) {
-    console.error('Failed to load images:', error)
-    loadButton.textContent = 'Error loading images'
+    console.error(error)
+    // Re-enable button on error
+    loadButton.textContent = CONFIG.messages.error
     loadButton.disabled = false
   }
-
 }
 
-// Event listener setup
-const loadButton = document.querySelector('#load')
+// Initialize button click handler
+const loadButton = document.querySelector('#image-loader')
 if (loadButton) {
-  loadButton.onclick = handleImageLoad
+  loadButton.addEventListener('click', loadImages)
 }
 

@@ -1,0 +1,71 @@
+/* Button styles */
+.btn {
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius-lg);
+  color: var(--color-text);
+  padding: clamp(0.75rem, 1.5vw + 0.5rem, 1.25rem) clamp(1.25rem, 2.5vw + 0.5rem, 2rem);
+  border: 0.125rem solid var(--color-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: clamp(1rem, 1vw + 0.75rem, 1.25rem);
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Improve touch target size on mobile */
+@media (max-width: 768px) {
+  .btn {
+    min-height: 3.5rem;
+    margin-top: var(--spacing-md);
+  }
+}
+
+.btn:hover {
+  transform: translateY(-0.125rem);
+  background-color: var(--color-primary);
+  border-color: var(--color-text);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.125rem var(--color-text),
+              0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Active states for touch devices */
+@media (hover: none) {
+  .btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .btn:active {
+    background-color: var(--color-primary);
+    opacity: 0.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+  
+  .btn:hover {
+    transform: none;
+  }
+} 

@@ -1,0 +1,11 @@
+/* Import base styles and variables */
+@import './base.css';
+
+/* Import component styles */
+@import './components/button.css';
+@import './components/grid.css';
+@import './components/gif-card.css';
+@import './components/form.css';
+
+/* Import utilities */
+@import './utilities.css'; 

@@ -1,18 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Unfold #1</title>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="src/styles/main.css">
   </head>
 
   <body>
-    <div id="app">
-      <button id="load">Load images</button>
-      <div id="images"></div>
-
+    <div class="app">
+      <div class="controls" id="controls">
+        <div class="form-group">
+          <label class="form-group__label" for="limit">Number of GIFs (1-50):</label>
+          <input 
+            class="form-control"
+            type="number" 
+            id="limit" 
+            name="limit"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            min="1" 
+            max="50" 
+            value="30"
+            aria-label="Number of GIFs to load"
+          >
+        </div>
+        
+        <button 
+          class="btn" 
+          id="image-loader"
+          aria-live="polite"
+        >
+          Load images
+        </button>
+      </div>
+      
+      <section class="gif-grid" id="gif-container">
+        <!-- Template for each GIF -->
+        <template id="gif-template">
+          <div class="gif-card">
+            <a class="gif-card__link" target="_blank" rel="noopener noreferrer" title="View on GIPHY">
+              <img class="gif-card__image" alt="" />
+            </a>
+            <div class="gif-card__content">
+              <h3 class="gif-card__title"></h3>
+              <p class="gif-card__description"></p>
+              <div class="gif-card__meta">
+                <span class="gif-card__user"></span>
+              </div>
+            </div>
+          </div>
+        </template>
+      </section>
     </div>
 
-    <script src="src/index.js"></script>
-    <link rel="stylesheet" href="src/styles.css">
+    <script type="module" src="src/index.js"></script>
   </body>
 </html>
