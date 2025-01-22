@@ -1,7 +1,7 @@
 import { posts } from "@/data/posts";
 
 import ScrollContainer from "@/components/ScrollContainer";
-import BlogCard from "@/components/BlogCard";
+import BlogCard from "@/components/card/BlogCard";
 
 export default function BlogFeed() {
   return (

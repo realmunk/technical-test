@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { posts } from "@/data/posts";
-import BlogPostContent from "@/components/BlogPost";
+import BlogPostLayout from "@/components/post/BlogPostLayout";
 
 type Props = {
   params: {
@@ -16,8 +16,10 @@ export default async function BlogPost({ params }: Props) {
     notFound();
   }
 
-  return <BlogPostContent post={post} slug={slug} />;
+  return <BlogPostLayout post={post} slug={slug} />;
 }
+
+
 
 // Generate static params for all posts
 export function generateStaticParams() {

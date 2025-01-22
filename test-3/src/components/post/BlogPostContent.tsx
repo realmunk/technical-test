@@ -12,7 +12,6 @@ const BlogPostContent = ({ content }: BlogPostContentProps) => {
       <div className="prose prose-lg mx-auto">
         <p 
           className="font-normal text-gray-800 leading-relaxed"
-          style={{ maxWidth: '65ch' }}
         >
           {content}
         </p>
