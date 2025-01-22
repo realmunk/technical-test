@@ -17,6 +17,7 @@ export default function ScrollContainer({ children }: ScrollContainerProps) {
     const savedScrollPosition = sessionStorage.getItem('home-scroll-position');
     if (savedScrollPosition) {
       container.scrollTop = parseInt(savedScrollPosition);
+      sessionStorage.removeItem('home-scroll-position');
     }
   }, []);
 
@@ -49,7 +50,7 @@ export default function ScrollContainer({ children }: ScrollContainerProps) {
   return (
     <div 
       ref={scrollContainerRef}
-      className="snap-y snap-mandatory h-screen overflow-y-auto focus:outline-none focus:ring-2 focus:ring-blue-500"
+      className="snap-y snap-mandatory h-screen overflow-y-auto"
       tabIndex={0}
       role="feed"
       aria-label="Blog posts feed"

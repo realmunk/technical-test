@@ -7,12 +7,13 @@ import BlogCardFooter from "./BlogCardFooter";
 
 type BlogCardLayoutProps = {
   post: BlogPost;
+  index: number;
 };
 
 // Mock current user - in a real app, this would come from your auth context/state
 const MOCK_CURRENT_USER = "realmunk";
 
-const BlogCardLayout = ({ post }: BlogCardLayoutProps) => {
+const BlogCardLayout = ({ post, index }: BlogCardLayoutProps) => {
   const isAuthor = post.author === MOCK_CURRENT_USER;
 
   return (
@@ -34,6 +35,7 @@ const BlogCardLayout = ({ post }: BlogCardLayoutProps) => {
             slug={post.slug}
             imageUrl={post.imageUrl}
             title={post.title}
+            priority={index === 0}
           />
 
           <BlogCardContent 

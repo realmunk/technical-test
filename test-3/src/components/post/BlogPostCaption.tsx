@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from "motion/react";
 import BlogPostMeta from "./BlogPostMeta";
 import BounceIn from "../animations/BounceIn";
 

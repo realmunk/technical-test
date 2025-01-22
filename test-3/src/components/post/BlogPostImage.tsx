@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import { imageLoader } from "@/utils/imageLoader";
 
 type BlogPostImageProps = {
   imageUrl: string;
@@ -22,13 +23,14 @@ const BlogPostImage = ({ imageUrl, title, slug }: BlogPostImageProps) => {
       }}
     >
       <Image
+        loader={imageLoader}
         src={imageUrl}
         alt={`Cover image for article: ${title}`}
         fill
         className="object-cover"
-        priority
-        sizes="100vw"
+        sizes="(max-width: 640px) 100vw, (max-width: 750px) 750px, (max-width: 828px) 828px, 1200px"
         quality={90}
+        priority
       />
     </motion.div>
   );

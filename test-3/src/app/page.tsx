@@ -14,7 +14,7 @@ export default function BlogFeed() {
           aria-posinset={index + 1}
           aria-setsize={posts.length}
         >
-          <BlogCard post={post} />
+          <BlogCard post={post} index={index} />
         </div>
       ))}
     </ScrollContainer>

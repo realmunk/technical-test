@@ -2,14 +2,16 @@
 
 import Image from "next/image";
 import { motion, useMotionValue, useTransform } from "motion/react";
+import { imageLoader } from "@/utils/imageLoader";
 
 type BlogCardImageProps = {
   slug: string;
   imageUrl: string;
   title: string;
+  priority: boolean;
 };
 
-const BlogCardImage = ({ slug, imageUrl, title }: BlogCardImageProps) => {
+const BlogCardImage = ({ slug, imageUrl, title, priority }: BlogCardImageProps) => {
   const scale = useMotionValue(1);
   const opacity = useTransform(scale, [1, 1.02], [0, 1]);
 
@@ -31,12 +33,14 @@ const BlogCardImage = ({ slug, imageUrl, title }: BlogCardImageProps) => {
         style={{ opacity }}
       />
       <Image
+        loader={imageLoader}
         src={imageUrl}
         alt={`Featured image for article: ${title}`}
         fill
         className="object-cover" 
-        sizes="(max-width: 768px) 100vw, 420px"
-        priority
+        sizes="(max-width: 640px) 100vw, (max-width: 750px) 750px, (max-width: 828px) 828px, 1200px"
+        quality={90}
+        priority={priority}
       />
     </motion.div>
   );
