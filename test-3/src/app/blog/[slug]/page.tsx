@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { posts } from "@/data/posts";
-import BlogPostContent from "@/components/BlogPostContent";
+import BlogPostContent from "@/components/BlogPost";
 
 type Props = {
   params: {
