@@ -28,9 +28,9 @@ export default function Home() {
         {posts.map((post) => (
           <div 
             key={post.id} 
-            className="snap-start h-screen w-full shrink-0 relative flex items-center justify-center">
+            className="snap-start h-screen w-full shrink-0 relative flex">
             {/* Card container */}
-            <div className="relative max-w-[420px] w-full mx-auto px-4">
+            <div className="relative max-w-[420px] w-full mx-auto px-10">
               <BlogCard post={post} />
             </div>
           </div>
