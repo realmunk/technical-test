@@ -5,4 +5,5 @@ export type BlogPost = {
   excerpt: string;
   imageUrl: string;
   slug: string;
+  content: string;
 }; 
