@@ -54,14 +54,6 @@ npm run dev   # Starts development server with Turbopack
 ```
 
 The application will be available at `http://localhost:3000`.
-
-## Development Notes
-
-- Each test implementation uses different technology stacks to showcase various approaches
-- All implementations include TypeScript for better type safety
-- Test-2 and Test-3 use TailwindCSS for styling
-- The Next.js implementation (Test-3) uses Turbopack for enhanced development experience
-
 ## License
 
 This project is part of Unfold's technical test suite. All rights reserved. 
