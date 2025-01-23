@@ -23,8 +23,6 @@ A vanilla JavaScript implementation using Parcel bundler.
 cd test-1
 npm install
 npm start    # Starts development server with hot reload
-npm run dev  # Alternative dev server
-npm run build # Creates production build
 ```
 
 The application will be available at `http://localhost:1234` by default.
@@ -39,8 +37,6 @@ A React implementation with TypeScript and TailwindCSS support.
 cd test-2
 npm install
 npm start    # Starts development server
-npm run build # Creates production build
-npm test     # Runs tests
 ```
 
 The application will be available at `http://localhost:3000`.
@@ -55,9 +51,6 @@ A modern Next.js implementation with TypeScript and TailwindCSS, using Turbopack
 cd test-3
 npm install
 npm run dev   # Starts development server with Turbopack
-npm run build # Creates production build
-npm start    # Runs production server
-npm run lint # Runs linting
 ```
 
 The application will be available at `http://localhost:3000`.
