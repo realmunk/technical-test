@@ -25,7 +25,7 @@ npm install
 npm run dev    # Starts development server with hot reload
 ```
 
-The application will be available at `http://localhost:1234` by default.
+The application will be available at `http://localhost:1234`.
 
 ## Test 2: React Implementation
 
@@ -54,6 +54,3 @@ npm run dev   # Starts development server with Turbopack
 ```
 
 The application will be available at `http://localhost:3000`.
-## License
-
-This project is part of Unfold's technical test suite. All rights reserved. 
