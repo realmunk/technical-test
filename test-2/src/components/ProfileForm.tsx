@@ -49,7 +49,7 @@ export const ProfileForm: React.FC = () => {
       } else {
         const successMsg = 'Profile updated successfully!';
         setSuccessMessage(successMsg);
-        setTimeout(handleFormReset, 5000);
+        setTimeout(handleFormReset, 2500);
       }
     } catch (error) {
       const errorMessage = 'An unexpected error occurred. Please try again.';

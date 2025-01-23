@@ -16,7 +16,7 @@ export const SuccessMessage: React.FC<SuccessMessageProps> = ({ message }) => {
   useEffect(() => {
     if (message) {
       setShowConfetti(true);
-      const timer = setTimeout(() => setShowConfetti(false), 5000); // Stop confetti after 5s
+      const timer = setTimeout(() => setShowConfetti(false), 2500); // Stop confetti after 5s
       return () => clearTimeout(timer);
     }
   }, [message]);
