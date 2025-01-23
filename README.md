@@ -22,7 +22,7 @@ A vanilla JavaScript implementation using Parcel bundler.
 ```bash
 cd test-1
 npm install
-npm start    # Starts development server with hot reload
+npm run dev    # Starts development server with hot reload
 ```
 
 The application will be available at `http://localhost:1234` by default.
@@ -36,7 +36,7 @@ A React implementation with TypeScript and TailwindCSS support.
 ```bash
 cd test-2
 npm install
-npm start    # Starts development server
+npm run start    # Starts development server
 ```
 
 The application will be available at `http://localhost:3000`.
