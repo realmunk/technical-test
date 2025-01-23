@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import { motion, useMotionValue, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { imageLoader } from "@/utils/imageLoader";
 
 type BlogCardImageProps = {
@@ -12,15 +12,11 @@ type BlogCardImageProps = {
 };
 
 const BlogCardImage = ({ slug, imageUrl, title, priority }: BlogCardImageProps) => {
-  const scale = useMotionValue(1);
-  const opacity = useTransform(scale, [1, 1.02], [0, 1]);
-
   return (
     <motion.div 
       layoutId={`post-image-${slug}`}
       className="relative w-full aspect-[1/1] rounded-lg overflow-hidden shadow-xl"
       whileHover={{ scale: 1.02 }}
-      style={{ scale }}
       transition={{
         type: "spring",
         bounce: 0.4,
@@ -30,7 +26,9 @@ const BlogCardImage = ({ slug, imageUrl, title, priority }: BlogCardImageProps) 
     >
       <motion.div
         className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
-        style={{ opacity }}
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
       />
       <Image
         loader={imageLoader}

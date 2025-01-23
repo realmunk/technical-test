@@ -43,7 +43,7 @@ const BlogCard = ({ post, index }: BlogCardProps) => {
       tabIndex={0}
       aria-label={`Read article: ${post.title}`}
     >
-      <BlogCardLayout post={post} />
+      <BlogCardLayout post={post} index={index} />
     </motion.div>
   );
 };
