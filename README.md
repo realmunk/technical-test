@@ -1,6 +1,6 @@
 # Unfold Technical Tests
 
-This repository contains three different technical test implementations for [Unfold](https://www.unfold.no/test-1234).
+This repository contains three different technical test implementations.
 
 ## Overview
 
