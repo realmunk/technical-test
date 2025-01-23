@@ -1,4 +1,4 @@
-# Unfold Technical Tests
+# Technical Tests
 
 This repository contains three different technical test implementations.
 
