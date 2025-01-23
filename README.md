@@ -11,7 +11,7 @@ This repository contains three different technical test implementations.
 ## Prerequisites
 
 - Node.js (Latest LTS version recommended)
-- npm or yarn package manager
+- npm
 
 ## Test 1: Vanilla JavaScript
 
